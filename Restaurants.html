@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Reservation</title>
+    <link rel="stylesheet" href="restaurants.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            margin-right: 20px;
+        }
+
+        .search-bar {
+            margin-right: 20px;
+        }
+
+        .header-right a {
+            color: rgb(222, 99, 99);
+            text-decoration: none;
+            margin-left: auto;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .town-name {
+            margin-bottom: 20px;
+        }
+
+        .booking-options {
+            display: flex;
+            gap: 20px;
+        }
+
+        .ratings-filter,
+        .search-button {
+            display: flex;
+            align-items: center;
+        }
+
+        .ratings-filter label {
+            margin-right: 10px;
+        }
+
+        .ratings-filter select,
+        .search-button button {
+            padding: 10px;
+        }
+
+        .restaurant-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1px;
+            justify-content: space-evenly;
+        }
+
+        .restaurant {
+            width: calc(22% - 20px);
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            border: 1px solid #931818;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .restaurant-image img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .restaurant-details {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .timings {
+            margin-top: 7px;
+        }
+
+        .menu-btn,
+        .reserve-btn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+        }
+
+        /* Add the modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow-y: scroll;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .menu-container {
+            width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <span class="logo">Town Guide</span>
+            <input type="text" placeholder="Search" class="search-bar" id="search-input">
+        </div>
+        <div class="header-right">
+            <a href="#" class="signup-login-link">Sign Up/Login</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="town-name">
+            <span>Destination:</span>
+            <span class="town-name-display">Town Name</span>
+        </div>
+
+        <div class="booking-options">
+            <div class="ratings-filter">
+                <label for="ratings">Ratings:</label>
+                <select id="ratings">
+                    <option value="4">4+</option>
+                    <option value="3">3+</option>
+                    <option value="2">2+</option>
+                    <option value="1">1+</option>
+                </select>
+            </div>
+
+            <div class="search-button">
+                <button type="button" class="search-btn" id="search-btn">Search</button>
+            </div>
+        </div>
+
+        <div class="restaurant-list">
+            <!-- Repeat the following structure for more restaurants -->
+            <div class="restaurant" data-ratings="4.5">
+                <div class="restaurant-image">
+                    <img src="facade.jpg" alt="Restaurant 1" onclick="showMenu(['facade.jpg', 'facade.jpg'])">
+                </div>
+                <div class="restaurant-details">
+                    <h3>Restaurant 1</h3>
+                    <div class="ratings">Ratings: 4.5</div>
+                    <div class="address">123 Main Street, Townsville</div>
+                    <div class="timings">Timings: 10:00 AM - 10:00 PM</div>
+                    <button type="button" class="menu-btn" onclick="showMenu(['facade.jpg', 'facade.jpg'])">Menu</button>
+                    <a href="tablereservation.html" class="reserve-btn">Reserve a Table</a>
+                </div>
+            </div>
+            <div class="restaurant" data-ratings="4.5">
+                <div class="restaurant-image">
+                    <img src="facade.jpg" alt="Restaurant 1" onclick="showMenu(['facade.jpg', 'facade.jpg'])">
+                </div>
+                <div class="restaurant-details">
+                    <h3>Restaurant 1</h3>
+                    <div class="ratings">Ratings: 4.5</div>
+                    <div class="address">123 Main Street, Townsville</div>
+                    <div class="timings">Timings: 10:00 AM - 10:00 PM</div>
+                    <button type="button" class="menu-btn" onclick="showMenu(['facade.jpg', 'facade.jpg'])">Menu</button>
+                    <a href="reservation1.html" class="reserve-btn">Reserve a Table</a>
+                </div>
+            </div>
+            <div class="restaurant" data-ratings="4.5">
+                <div class="restaurant-image">
+                    <img src="facade.jpg" alt="Restaurant 1" onclick="showMenu(['facade.jpg', 'facade.jpg'])">
+                </div>
+                <div class="restaurant-details">
+                    <h3>Restaurant 1</h3>
+                    <div class="ratings">Ratings: 4.5</div>
+                    <div class="address">123 Main Street, Townsville</div>
+                    <div class="timings">Timings: 10:00 AM - 10:00 PM</div>
+                    <button type="button" class="menu-btn" onclick="showMenu(['facade.jpg', 'facade.jpg'])">Menu</button>
+                    <a href="reservation1.html" class="reserve-btn">Reserve a Table</a>
+                </div>
+            </div>
+            <div class="restaurant" data-ratings="4.5">
+                <div class="restaurant-image">
+                    <img src="facade.jpg" alt="Restaurant 1" onclick="showMenu(['facade.jpg', 'facade.jpg'])">
+                </div>
+                <div class="restaurant-details">
+                    <h3>Restaurant 1</h3>
+                    <div class="ratings">Ratings: 4.5</div>
+                    <div class="address">123 Main Street, Townsville</div>
+                    <div class="timings">Timings: 10:00 AM - 10:00 PM</div>
+                    <button type="button" class="menu-btn" onclick="showMenu(['facade.jpg', 'facade.jpg'])">Menu</button>
+                    <a href="reservation1.html" class="reserve-btn">Reserve a Table</a>
+                </div>
+            </div>
+            <!-- End of repeated structure -->
+
+            <!-- Add more restaurants as needed -->
+
+        </div>
+    </main>
+
+    <!-- Add the modal structure at the end of the body -->
+    <div id="menuModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeMenuModal()">&times;</span>
+            <div class="menu-container"> <!-- Removed onClick event for the next page -->
+                <!-- Add your initial menu image here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const searchBtn = document.getElementById("search-btn");
+        const ratingsSelect = document.getElementById("ratings");
+        const restaurantList = document.querySelectorAll(".restaurant");
+
+        searchBtn.addEventListener("click", () => {
+            const selectedRatings = parseFloat(ratingsSelect.value);
+
+            restaurantList.forEach((restaurant) => {
+                const ratings = parseFloat(restaurant.getAttribute("data-ratings"));
+
+                if (ratings >= selectedRatings) {
+                    restaurant.style.display = "flex";
+                } else {
+                    restaurant.style.display = "none";
+                }
+            });
+        });
+
+        function showMenu(menuImageUrls) {
+            const menuModal = document.getElementById("menuModal");
+            const modalContent = document.querySelector(".modal-content");
+
+            // Set the content of the modal to the menu images
+            const menuContainer = modalContent.querySelector(".menu-container");
+            menuContainer.innerHTML = '';
+
+            menuImageUrls.forEach((imageUrl) => {
+                const menuImage = document.createElement("img");
+                menuImage.src = imageUrl;
+                menuImage.alt = "Menu";
+                menuContainer.appendChild(menuImage);
+            });
+
+            // Display the modal
+            menuModal.style.display = "flex";
+        }
+
+        function closeMenuModal() {
+            const menuModal = document.getElementById("menuModal");
+
+            // Hide the modal
+            menuModal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

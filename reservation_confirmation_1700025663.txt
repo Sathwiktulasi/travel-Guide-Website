@@ -1,0 +1,8 @@
+Reservation Successful!
+
+Name: Thatwik Reddy
+Email: thatwikreddy.s@gmail.com
+Phone: 08179783182
+Date: 2023-11-10
+Time: 8:00 PM
+Party Size: 8

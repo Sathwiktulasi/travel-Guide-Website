@@ -1,0 +1,95 @@
+/* Reset some default styles and set a background color */
+body, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.search-bar {
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Style the main content */
+main {
+  padding: 20px;
+}
+
+.town-name {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.booking-options {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking-options label {
+  display: block;
+  font-weight: bold;
+}
+
+/* Style the hotel listings */
+.hotel-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.hotel {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hotel img {
+  max-width: 200px; /* Adjust the width as needed */
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.hotel-details {
+  flex: 1;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.reviews, .price {
+  font-size: 16px;
+  color: #777;
+}

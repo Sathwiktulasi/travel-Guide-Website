@@ -1,0 +1,8 @@
+Reservation Successful!
+
+Name: SATWIK
+Email: tathwik2012@gmail.com
+Phone: 9441014022
+Date: 2003-10-12
+Time: 7:00 PM
+Party Size: 4

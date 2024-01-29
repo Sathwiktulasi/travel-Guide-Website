@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attraction Map</title>
+    <!-- Add your map-related styles or scripts here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Attraction Map</h1>
+
+    <script>
+        // Retrieve the attraction name from the URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const attractionName = urlParams.get('attraction');
+
+        // Use the attractionName to display the map or perform other map-related actions
+        document.body.innerHTML += `<p>Displaying map for ${attractionName}</p>`;
+        // Add your map-related scripts or content here
+    </script>
+</body>
+
+</html>

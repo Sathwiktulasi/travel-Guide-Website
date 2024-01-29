@@ -1,0 +1,143 @@
+/* General Styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  /* Header Styles */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 20px;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .search-bar {
+    margin-left: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 200px;
+  }
+  
+  .signup-login-link {
+    font-size: 16px;
+  }
+  
+  /* Main Styles */
+  main {
+    padding: 20px;
+  }
+  
+  .town-name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .town-name-display {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  .ratings-filter {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .ratings-filter label {
+    margin-right: 10px;
+  }
+  
+  #ratings {
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-button {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-btn {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  /* Restaurant List Styles */
+  .restaurant-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .restaurant {
+    width: 250px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .restaurant a {
+    display: block;
+  }
+  
+  .restaurant img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .restaurant-details {
+    margin-top: 10px;
+  }
+  
+  .restaurant-details h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .ratings,
+  .address {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .menu-btn,
+  .reserve-btn {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .restaurant-list {
+      flex-direction: column;
+    }
+  
+    .restaurant {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+  

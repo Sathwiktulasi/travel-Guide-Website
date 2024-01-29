@@ -1,0 +1,204 @@
+<?php
+session_start();
+?><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Details</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="hotel1.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #3498db;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .header-right a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #2980b9;
+        }
+
+        .centered-content {
+            padding: 20px;
+            color: #34495e;
+        }
+
+        .hotel-info {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .hotel-image img {
+            width: 400px; /* Increased image size */
+            height: 300px; /* Increased image size */
+            object-fit: cover;
+        }
+
+        .hotel-details {
+            padding: 20px;
+        }
+
+        .amenities {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .amenity {
+            background-color: #3498db;
+            color: white;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .booking-options {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the content */
+        }
+
+        input,
+        select,
+        button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #3498db;
+            width: 200px;
+        }
+
+        .book-button {
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+        }
+
+        .map {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .reviews {
+            margin-top: 20px;
+        }
+
+        .review {
+            border: 1px solid #ecf0f1;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-left">
+            <span class="logo">Town Guide</span>
+        </div>
+        <div class="header-right">
+            <a href="#" class="signup-login-link">Sign Up/Login</a>
+        </div>
+    </header>
+
+    <main class="centered-content">
+        <div class="hotel-info">
+            <div class="hotel-image">
+                <img src="facade.jpg" alt="Hotel 1">
+            </div>
+            <div class="hotel-details">
+                <h2>Hotel 1</h2>
+                <p>123 Main Street, Townsville</p>
+                <div class="ratings">Ratings: 4.5</div>
+                <div class="price">$100 per night</div>
+            </div>
+        </div>
+
+        <div class="amenities">
+            <h3>Amenities</h3>
+            <div class="amenity">WiFi</div>
+            <div class="amenity">Lounge</div>
+            <div class="amenity">Swimming Pool</div>
+            <div class="amenity">Restaurant</div>
+            <div class="amenity">Gym</div>
+            <div class="amenity">Spa</div>
+        </div>
+
+        <div class="booking-options">
+            <div class="check-in-out">
+                <label for="check-in">Check In:</label>
+                <input type="date" id="check-in">
+            </div>
+
+            <div class="check-out">
+                <label for="check-out">Check Out:</label>
+                <input type="date" id="check-out">
+            </div>
+
+            <div class="guests">
+                <label for="guests">Number of Guests:</label>
+                <select id="guests">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <button class="book-button">Book</button>
+        </div>
+
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d928.733094418016!2d-83.00397599999999!3d42.3263966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDIzJzI0LjQiTiA4M8KwMzInNTUuMyJX!5e1!3m2!1sen!2sus!4v1234567890123"
+                width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="reviews">
+            <div class="review">
+                <h3>Customer 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus felis. Maecenas...</p>
+            </div>
+            <div class="review">
+                <h3>Customer 2</h3>
+                <p>Another review here...</p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

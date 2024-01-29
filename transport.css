@@ -1,0 +1,90 @@
+/* Reset some default styles for consistency */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+}
+
+header {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+nav {
+  text-align: center;
+}
+
+
+main {
+  padding: 20px;
+}
+
+.transportation-listings {
+  margin-bottom: 40px;
+}
+
+.transportation-option {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.transportation-frame img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.transportation-details {
+  padding: 20px;
+}
+
+h3 {
+  color: #3498db;
+}
+
+p {
+  color: #666;
+}
+
+.book-now-button {
+  margin-top: 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.book-now-button a {
+  color: white;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

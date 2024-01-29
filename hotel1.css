@@ -1,0 +1,122 @@
+/* hotel1.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 20px;
+    font-size: 24px;
+}
+
+.search-bar {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-login-link {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+}
+
+.centered-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hotel-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hotel-details {
+    margin-left: 20px;
+}
+
+.hotel-details h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.hotel-details p {
+    margin: 5px 0;
+}
+
+.ratings {
+    color: #f90;
+}
+
+.price {
+    font-size: 20px;
+}
+
+.amenities {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.amenities h3 {
+    font-size: 24px;
+}
+
+.amenity {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.booking-options {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.booking-options label {
+    margin-right: 10px;
+}
+
+.book-button {
+    padding: 10px 20px;
+    background-color: #f90;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.map {
+    text-align: center;
+    margin-bottom: 20px

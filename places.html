@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Town Attractions</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('background-image.jpg'); /* Add your background image path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            margin-right: 20px;
+        }
+
+        .search-bar {
+            margin-right: 20px;
+        }
+
+        .header-right a {
+            color: rgb(222, 99, 99);
+            text-decoration: none;
+            margin-left: auto;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .town-name {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .attraction-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-evenly;
+        }
+
+        .attraction {
+            width: calc(25% - 20px); /* Adjusted to display four places in one row */
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            border: 2px solid #931818;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .attraction-image {
+            max-height: none;
+            overflow: hidden;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .attraction-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .attraction:hover .attraction-image img {
+            transform: scale(1.1);
+        }
+
+        .attraction-details {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .ratings {
+            margin-top: 10px;
+            color: #da6363;
+            font-weight: bold;
+        }
+
+        .review {
+            margin-top: 15px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .map-link {
+            margin-top: 15px;
+            display: block;
+            background-color: #4caf50;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .map-link:hover {
+            background-color: #45a049;
+        }
+
+        @keyframes changeContent {
+            0%, 100% {
+                opacity: 1;
+            }
+            20%, 80% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <span class="logo">Town Guide</span>
+            <input type="text" placeholder="Search" class="search-bar" id="search-input">
+        </div>
+        <div class="header-right">
+            <a href="#" class="signup-login-link">Sign Up/Login</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="town-name">
+            <span>Explore the Attractions in:</span>
+            <span class="town-name-display">Vijayawada</span>
+        </div>
+
+        <div class="attraction-list" id="attraction-list">
+            <!-- Attraction elements will be dynamically added here -->
+        </div>
+    </main>
+
+    <script>
+        const attractionsData = [
+            {
+                name: 'Kanaka Durga Temple',
+                description: 'Description for Kanaka Durga Temple',
+                ratings: '4.5',
+                images: ['kanaka-durga-temple-place1.jpg', 'kanaka-durga-temple2.jpg', 'kanaka-durga-temple3.jpg'],
+                reviews: ['Review 1A: Excellent!', 'Review 1B: Must visit!'],
+                latitude: 16.5079,
+                longitude: 80.6460
+            },
+            {
+                name: 'Undavalli Caves',
+                description: 'Description for Undavalli Caves',
+                ratings: '4.2',
+                images: ['undavalli-caves-place2.jpg', 'undavalli-caves2.jpg', 'undavalli-caves3.jpg'],
+                reviews: ['Review 2A: Beautiful place!', 'Review 2B: Historical marvel!'],
+                latitude: 16.4970,
+                longitude: 80.6515
+            },
+            {
+                name: 'Kanaka Durga Temple',
+                description: 'Description for Kanaka Durga Temple',
+                ratings: '4.5',
+                images: ['kanaka-durga-temple-place1.jpg', 'kanaka-durga-temple2.jpg', 'kanaka-durga-temple3.jpg'],
+                reviews: ['Review 1A: Excellent!', 'Review 1B: Must visit!'],
+                latitude: 16.5079,
+                longitude: 80.6460
+            },
+            {
+                name: 'Undavalli Caves',
+                description: 'Description for Undavalli Caves',
+                ratings: '4.2',
+                images: ['undavalli-caves-place2.jpg', 'undavalli-caves2.jpg', 'undavalli-caves3.jpg'],
+                reviews: ['Review 2A: Beautiful place!', 'Review 2B: Historical marvel!'],
+                latitude: 16.4970,
+                longitude: 80.6515
+            },
+            {
+                name: 'Undavalli Caves',
+                description: 'Description for Undavalli Caves',
+                ratings: '4.2',
+                images: ['undavalli-caves-place2.jpg', 'undavalli-caves2.jpg', 'undavalli-caves3.jpg'],
+                reviews: ['Review 2A: Beautiful place!', 'Review 2B: Historical marvel!'],
+                latitude: 16.4970,
+                longitude: 80.6515
+            },
+            {
+                name: 'Undavalli Caves',
+                description: 'Description for Undavalli Caves',
+                ratings: '4.2',
+                images: ['undavalli-caves-place2.jpg', 'undavalli-caves2.jpg', 'undavalli-caves3.jpg'],
+                reviews: ['Review 2A: Beautiful place!', 'Review 2B: Historical marvel!'],
+                latitude: 16.4970,
+                longitude: 80.6515
+            },
+            {
+                name: 'Undavalli Caves',
+                description: 'Description for Undavalli Caves',
+                ratings: '4.2',
+                images: ['undavalli-caves-place2.jpg', 'undavalli-caves2.jpg', 'undavalli-caves3.jpg'],
+                reviews: ['Review 2A: Beautiful place!', 'Review 2B: Historical marvel!'],
+                latitude: 16.4970,
+                longitude: 80.6515
+            },
+            {
+                name: 'Undavalli Caves',
+                description: 'Description for Undavalli Caves',
+                ratings: '4.2',
+                images: ['undavalli-caves-place2.jpg', 'undavalli-caves2.jpg', 'undavalli-caves3.jpg'],
+                reviews: ['Review 2A: Beautiful place!', 'Review 2B: Historical marvel!'],
+                latitude: 16.4970,
+                longitude: 80.6515
+            },
+            
+            // Add more objects for each attraction with its images and reviews
+        ];
+
+        function createAttractionElement(attraction) {
+            const attractionElement = document.createElement('div');
+            attractionElement.classList.add('attraction');
+            attractionElement.setAttribute('data-ratings', attraction.ratings);
+
+            const imageBox = document.createElement('div');
+            imageBox.classList.add('attraction-image', 'image-box');
+            attractionElement.appendChild(imageBox);
+
+            const detailsBox = document.createElement('div');
+            detailsBox.classList.add('attraction-details');
+            attractionElement.appendChild(detailsBox);
+
+            const header = document.createElement('h3');
+            header.textContent = attraction.name;
+            detailsBox.appendChild(header);
+
+            const description = document.createElement('p');
+            description.textContent = attraction.description;
+            detailsBox.appendChild(description);
+
+            const ratings = document.createElement('div');
+            ratings.classList.add('ratings');
+            ratings.textContent = 'Ratings: ' + attraction.ratings;
+            detailsBox.appendChild(ratings);
+
+            const reviewsBox = document.createElement('div');
+            reviewsBox.classList.add('review');
+            reviewsBox.id = 'reviews-box';
+            detailsBox.appendChild(reviewsBox);
+
+            const mapLink = document.createElement('a');
+            mapLink.href = `https://www.google.com/maps?q=${attraction.latitude},${attraction.longitude}`;
+            mapLink.target = '_blank';
+            mapLink.classList.add('map-link');
+            mapLink.textContent = 'View on Map';
+            detailsBox.appendChild(mapLink);
+
+            document.getElementById('attraction-list').appendChild(attractionElement);
+
+            return { imageBox, reviewsBox };
+        }
+
+        function changeContent(attractionIndex) {
+            const currentAttraction = attractionsData[attractionIndex];
+            const { imageBox, reviewsBox } = createAttractionElement(currentAttraction);
+
+            let imageIndex = 0;
+            let reviewIndex = 0;
+
+            function changeAttractionContent() {
+                imageBox.innerHTML = `<img src="${currentAttraction.images[imageIndex]}" alt="Attraction Image">`;
+                reviewsBox.innerHTML = `<span>${currentAttraction.reviews[reviewIndex]}</span>`;
+
+                imageIndex = (imageIndex + 1) % currentAttraction.images.length;
+                reviewIndex = (reviewIndex + 1) % currentAttraction.reviews.length;
+
+                setTimeout(changeAttractionContent, 3000);
+            }
+
+            changeAttractionContent();
+        }
+
+        for (let i = 0; i < attractionsData.length; i++) {
+            changeContent(i);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+Reservation Successful!
+
+Name: sathwik
+Email: tsathwk2017@gmail.com
+Phone: 9441014022
+Date: 2023-11-01
+Time: 7:00 PM
+Party Size: 4

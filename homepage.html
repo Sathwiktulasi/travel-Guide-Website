@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Add your existing head content here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        /* Your existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        #login-signup {
+            display: flex;
+            align-items: center;
+        }
+        #login-signup-link {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        #login-signup-link i {
+            margin-left: 5px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+        .description {
+            text-align: center;
+            margin: 20px;
+        }
+        .town-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+        .image-gallery {
+            text-align: center;
+        }
+        .image-gallery img {
+            margin: 10px;
+            max-width: 10%;
+            height: auto;
+        }
+        .show-more-link {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+        .social-media {
+            text-align: center;
+            margin: 20px;
+        }
+        .social-media a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 20px;
+            color: #333;
+            text-decoration: none;
+        }
+        /* Add your CSS styles here */
+        .box-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .box {
+    flex: 1;
+    border: 10px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    max-width: 100%;
+    margin: 20px 20px; /* Add margin to both sides */
+}
+
+    .box img {
+        width: 65%;
+        height: 400px;
+        display: block;
+        margin-bottom: 1px; 
+        margin-right: 50px; /* Add margin between each image */
+    }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            position: relative;
+            border-radius: 5px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .box-title {
+            font-size: 30px;
+            margin-bottom: 0px;
+            text-align: center;
+            padding: 10px;
+        }
+        /* Additional styles for the modifications */
+        #town-name {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #explore-title {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+
+    .masonry-layout {
+        column-count: 4; /* Number of columns in the layout */
+        column-gap: 1px; /* Adjust the gap between columns */
+        margin: 10px;
+    }
+
+    .masonry-item {
+        display: inline-block;
+        width: 80%;
+        margin-bottom: 1px; /* Adjust the gap between items */
+    }
+
+    .masonry-item img {
+        width: 120%;
+        height: auto;
+        display: block;
+        border-radius: 10px; /* Optional: Add border radius for a rounded look */
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Town Guide</h1>
+        <div id="login-signup">
+            <a id="login-signup-link" onclick="openLoginModal()">Login/Signup <i class="fas fa-user"></i></a>
+            <?php
+               $sel = "SELECT * FROM users";
+               $query = mysqli_query($conn,$sel);
+               $resul = mysqli_fetch_assoc($query);
+            ?>   
+        </div>
+          <div class="topbar-divider d-none d-sm-block"></div>
+          <?php
+               $sel = "SELECT * FROM users";
+               $query = mysqli_query($conn,$sel);
+               $resul = mysqli_fetch_assoc($query);
+            ?>   
+    </header>
+
+    <!-- New Town Name Section -->
+    <div id="town-name">
+        <p>Explore the Beauty of [Town Name]</p>
+    </div>
+
+    <!-- Existing Town Description -->
+    <div class="description">
+        <p>Welcome to our charming town! Explore the beauty and culture of our town through this guide. Discover the finest hotels, must-visit places, convenient transportation, and local profiles.</p>
+    </div>
+
+    <!-- Scrolling Images of the Town -->
+    <!-- Scrolling Images of the Town -->
+<div class="scrolling-images-container">
+    <div class="masonry-layout">
+        <div class="masonry-item">
+            <img src="town image1.jpg" alt="Town Image 1">
+        </div>
+        <div class="masonry-item">
+            <img src="town2.jpg" alt="Town Image 2">
+        </div>
+        <div class="masonry-item">
+            <img src="town3.jpg" alt="Town Image 3">
+        </div>
+        <div class="masonry-item">
+            <img src="town4.jpg" alt="Town Image 4">
+        </div>
+        <div class="masonry-item">
+            <img src="town4.jpg" alt="Town Image 5">
+        </div>
+        <div class="masonry-item">
+            <img src="town3.jpg" alt="Town Image 5">
+        </div>
+        <div class="masonry-item">
+            <img src="town5.jpg" alt="Town Image 5">
+        </div>
+        <div class="masonry-item">
+            <img src="town4.jpg" alt="Town Image 5">
+        </div>
+        <!-- Add more images as needed -->
+    </div>
+</div>
+
+
+    <p class="show-more-link" onclick="showMoreImages()">View More Photos</p>
+
+    <!-- Explore Section Title -->
+    <div id="explore-title">
+        <p>Things to Do and Explore</p>
+    </div>
+
+    <!-- Existing Boxes (Hotels, Visiting Places, Transport, Theatres, Restaurants) -->
+<!-- Hotels Box -->
+<div class="box" onclick="openPage('hotels.html')">
+    <div class="box-title">Hotels</div>
+    <div class="box-container">
+        <img src="Lemon tree premier-hotel1.jpg" alt="Hotel 1">
+        <img src="manorama-hotel4.jpg" alt="Hotel 2">
+        <img src="Novotel vijayawada varun-hotel3.jpg" alt="Hotel 3">
+    </div>
+</div>
+</br>
+<!-- Visiting Places Box -->
+<div class="box" onclick="openPage('places.html')">
+    <div class="box-title">Visiting Places</div>
+    <div class="box-container">
+        <img src="kanaka-durga-temple-place1.jpg" alt="Place 1">
+        <img src="prakasam-barrage-place3.jpg" alt="Place 2">
+        <img src="mangalagiri-place 4.jpg" alt="Place 3">
+    </div>
+</div>
+</br>
+<!-- Transport Box -->
+<div class="box" onclick="openPage('transport.html')">
+    <div class="box-title">Transport</div>
+    <div class="box-container">
+        <img src="transport-images/transport1.jpg" alt="Transport 1">
+        <img src="transport-images/transport2.jpg" alt="Transport 2">
+        <img src="transport-images/transport3.jpg" alt="Transport 3">
+    </div>
+</div>
+</br>
+<!-- Theatres Box -->
+<div class="box" onclick="openPage('Entertainment.html')">
+    <div class="box-title">Entertainment</div>
+    <div class="box-container">
+        <img src="theatre-images/theatre1.jpg" alt="Theatre 1">
+        <img src="theatre-images/theatre2.jpg" alt="Theatre 2">
+        <img src="theatre-images/theatre3.jpg" alt="Theatre 3">
+    </div>
+</div>
+</br>
+<div class="box" onclick="openPage('Restaurants.html')">
+<div class="box-title">Restaurants</div>
+<div class="box-container">
+    <img src="theatre-images/theatre1.jpg" alt="Theatre 1">
+    <img src="theatre-images/theatre2.jpg" alt="Theatre 2">
+    <img src="theatre-images/theatre3.jpg" alt="Theatre 3">
+</div>
+</div>
+    <!-- Social Media Section -->
+    <div class="social-media">
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <!-- Add links to your social media profiles -->
+    </div>
+
+    <!-- Login/Signup Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login/Signup</h2>
+            <div id="login-form-container">
+                <!-- Add your login form here -->
+            </div>
+            <div id="signup-form-container">
+                <!-- Add your signup form here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Your existing JavaScript code here
+
+        // Function to open the login modal
+        function openLoginModal() {
+            const loginModal = document.getElementById("loginModal");
+            loginModal.style.display = "block";
+        }
+
+        // Function to close the login modal
+        function closeLoginModal() {
+            const loginModal = document.getElementById("loginModal");
+            loginModal.style.display = "none";
+        }
+
+        // Function to open other pages
+        function openPage(page) {
+            window.location.href = page;
+        }
+
+        // Function to show more images
+        function showMoreImages() {
+            const hiddenImages = document.querySelectorAll('.image-gallery img:not(:visible)');
+            hiddenImages.forEach(img => img.style.display = 'block');
+        }
+    </script>
+</body>
+
+</html>

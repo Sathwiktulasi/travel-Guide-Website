@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <link rel="stylesheet" href="hotelscss.css">
+    <style>
+        /* Add the modified styles here */
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .search-bar {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .header-right a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #2980b9;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .town-name {
+            margin-bottom: 20px;
+        }
+
+        .town-name span {
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .town-name-display {
+            font-size: 20px;
+        }
+
+        .booking-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .price-filter,
+        .ratings-filter,
+        .filter-button {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .price-filter label,
+        .ratings-filter label {
+            display: block;
+            margin-bottom: 5px;
+            color: #3498db;
+        }
+
+        .price-inputs {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .price-inputs input {
+            margin-right: 10px;
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .ratings-filter select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .filter-button button {
+            width: 100%;
+            padding: 8px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .filter-button button:hover {
+            background-color: #2980b9;
+        }
+
+        .hotel-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .hotel-container {
+            width: calc(33.33% - 20px);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            flex-grow: 1;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hotel-container:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .hotel-container {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hotel-container {
+                width: 100%;
+            }
+        }
+
+        .hotel {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .hotel img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .hotel-details {
+            padding: 20px;
+        }
+
+        .hotel h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #3498db;
+        }
+
+        .ratings,
+        .address,
+        .price {
+            margin-bottom: 10px;
+        }
+
+        .ratings {
+            color: #f39c12;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <span class="logo">Town Guide</span>
+            <input type="text" placeholder="Search" class="search-bar">
+        </div>
+        <div class="header-right">
+            <a href="#" class="signup-login-link">Sign Up/Login</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="town-name">
+            <span>Destination:</span>
+            <span class="town-name-display">Town Name</span>
+        </div>
+
+        <div class="booking-options">
+            <div class="price-filter">
+                <label for="price-min">Price Range:</label>
+                <div class="price-inputs">
+                    <input type="number" id="price-min" placeholder="Min">
+                    <input type="number" id="price-max" placeholder="Max">
+                </div>
+            </div>
+
+            <div class="ratings-filter">
+                <label for="ratings">Ratings:</label>
+                <select id="ratings">
+                    <option value="4">4+</option>
+                    <option value="3">3+</option>
+                    <option value="2">2+</option>
+                    <option value="1">1+</option>
+                </select>
+            </div>
+
+            <div class="filter-button">
+                <button type="button" class="search-btn" id="search-btn">Filter</button>
+            </div>
+        </div>
+
+        <div class="hotel-list">
+            <!-- Your hotel containers go here -->
+            <!-- Example hotel container -->
+            <div class="hotel-container">
+                <div class="hotel" data-price="2500" data-ratings="4.5">
+                    <a href="hotel1.html" class="hotel-link">
+                        <img src="Lemon tree premier-hotel1.jpg" alt="Hotel 1">
+                    </a>
+                    <div class="hotel-details">
+                        <a href="hotel1.html" class="hotel-link">
+                            <h3>Lemon Tree Premier</h3>
+                        </a>
+                        <div class="ratings">Ratings: 5.0</div>
+                        <div class="address">MG Road Opp. Sub Collector Office, Vijayawada 520002 India</div>
+                        <div class="price">Rs.5525</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-container">
+                <div class="hotel" data-price="2500" data-ratings="4.5">
+                    <a href="hotel1.html" class="hotel-link">
+                        <img src="Lemon tree premier-hotel1.jpg" alt="Hotel 1">
+                    </a>
+                    <div class="hotel-details">
+                        <a href="hotel1.html" class="hotel-link">
+                            <h3>Lemon Tree Premier</h3>
+                        </a>
+                        <div class="ratings">Ratings: 4.5</div>
+                        <div class="address">123 Main Street, Townsville</div>
+                        <div class="price">$100 per night</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-container">
+                <div class="hotel" data-price="2500" data-ratings="4.5">
+                    <a href="hotel1.html" class="hotel-link">
+                        <img src="Lemon tree premier-hotel1.jpg" alt="Hotel 1">
+                    </a>
+                    <div class="hotel-details">
+                        <a href="hotel1.html" class="hotel-link">
+                            <h3>Lemon Tree Premier</h3>
+                        </a>
+                        <div class="ratings">Ratings: 4.5</div>
+                        <div class="address">123 Main Street, Townsville</div>
+                        <div class="price">$100 per night</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-container">
+                <div class="hotel" data-price="2500" data-ratings="4.5">
+                    <a href="hotel1.html" class="hotel-link">
+                        <img src="Lemon tree premier-hotel1.jpg" alt="Hotel 1">
+                    </a>
+                    <div class="hotel-details">
+                        <a href="hotel1.html" class="hotel-link">
+                            <h3>Lemon Tree Premier</h3>
+                        </a>
+                        <div class="ratings">Ratings: 4.5</div>
+                        <div class="address">123 Main Street, Townsville</div>
+                        <div class="price">$100 per night</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-container">
+                <div class="hotel" data-price="2500" data-ratings="4.5">
+                    <a href="hotel1.html" class="hotel-link">
+                        <img src="Lemon tree premier-hotel1.jpg" alt="Hotel 1">
+                    </a>
+                    <div class="hotel-details">
+                        <a href="hotel1.html" class="hotel-link">
+                            <h3>Lemon Tree Premier</h3>
+                        </a>
+                        <div class="ratings">Ratings: 4.5</div>
+                        <div class="address">123 Main Street, Townsville</div>
+                        <div class="price">$100 per night</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-container">
+                <div class="hotel" data-price="2500" data-ratings="4.5">
+                    <a href="hotel1.html" class="hotel-link">
+                        <img src="Lemon tree premier-hotel1.jpg" alt="Hotel 1">
+                    </a>
+                    <div class="hotel-details">
+                        <a href="hotel1.html" class="hotel-link">
+                            <h3>Lemon Tree Premier</h3>
+                        </a>
+                        <div class="ratings">Ratings: 4.5</div>
+                        <div class="address">123 Main Street, Townsville</div>
+                        <div class="price">$100 per night</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat the above structure for more hotels -->
+        </div>
+    </main>
+
+    <script>
+        const searchBtn = document.getElementById("search-btn");
+        const priceMinInput = document.getElementById("price-min");
+        const priceMaxInput = document.getElementById("price-max");
+        const ratingsSelect = document.getElementById("ratings");
+        const hotelList = document.querySelectorAll(".hotel");
+
+        searchBtn.addEventListener("click", () => {
+            const priceMin = parseFloat(priceMinInput.value);
+            const priceMax = parseFloat(priceMaxInput.value);
+            const selectedRatings = parseFloat(ratingsSelect.value);
+
+            hotelList.forEach((hotel) => {
+                const price = parseFloat(hotel.getAttribute("data-price"));
+                const ratings = parseFloat(hotel.getAttribute("data-ratings"));
+
+                if (
+                    (!priceMin || price >= priceMin) &&
+                    (!priceMax || price <= priceMax) &&
+                    ratings >= selectedRatings
+                ) {
+                    hotel.style.display = "block";
+                } else {
+                    hotel.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

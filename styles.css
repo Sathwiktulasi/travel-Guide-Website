@@ -1,0 +1,110 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .row > div {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  /* Header styles */
+  nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Title styles */
+  h1 {
+    color: #2196F3; /* Change this to the color you want for the title */
+    font-size: 2em;
+  }
+  
+  .description {
+    margin: 20px 0;
+  }
+  
+  .description p {
+    font-size: 1.2em;
+  }
+  
+  /* Section boxes styles */
+  .section-box {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .section-box img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .section-box:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.05);
+  }
+  
+  /* Footer styles */
+  .social-icons {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .social-icons a {
+    font-size: 24px;
+    margin: 0 10px;
+    color: #555;
+    text-decoration: none;
+  }
+  
+  /* Copyright text */
+  footer p {
+    text-align: center;
+    color: #777;
+    margin: 10px 0;
+  }
+  
+  /* Images of the Town styles */
+  .town-images {
+    text-align: center;
+  }
+  
+  .town-images img {
+    width: 150px;
+    height: 150px;
+    margin: 0 10px;
+    border-radius: 10px;
+  }
+  
+  .town-images img:hover {
+    border: 2px solid #2196F3; /* Highlight border color on hover */
+  }
+  
+  /* Description styles */
+  .description p {
+    font-size: 1.2em;
+  }
+  
